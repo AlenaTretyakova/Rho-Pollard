@@ -10,12 +10,12 @@ jobs:
 
       - name: Test
         run: |
-          python rho-pollard.py
+          python rho_pollard.py
           if [[ $? -ne 0 ]]; then
             echo "First test failed"
             exit 1
           fi
-          if [[ ! $(python rho-pollard.py) =~ 1[0-3] ]]; then
+          if [[ ! $(python rho_pollard.py) =~ 1[0-3] ]]; then
             echo "Second test failed"
             exit 1
           fi  
