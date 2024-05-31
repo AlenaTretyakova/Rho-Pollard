@@ -1,0 +1,21 @@
+name: rho-pollard_test
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Test
+        run: |
+          python rho-pollard_test.py
+          if [[ $? -ne 0 ]]; then
+            echo "First test failed"
+            exit 1
+          fi
+          if [[ ! $(python main.py) =~ 1[0-3] ]]; then
+            echo "Second test failed"
+            exit 1
+          fi  
