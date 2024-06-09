@@ -26,7 +26,7 @@ while t:
             x = ((table[i][0] - ui) / (vi - table[i][1])) % (p - 1)
 if x < 0:
     x += p
-return x
+print (x)
 
 
 
