@@ -1,4 +1,3 @@
-
 a = 15
 b = 4
 p = 31
@@ -27,7 +26,7 @@ while t:
             x = ((table[i][0] - ui) / (vi - table[i][1])) % (p - 1)
 if x < 0:
     x += p
-print (x)
+return x
 
 
 
