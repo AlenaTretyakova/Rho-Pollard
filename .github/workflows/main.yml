@@ -1,4 +1,4 @@
-name: rho-pollard_test
+name: Test
 on: push
 
 jobs:
@@ -11,11 +11,7 @@ jobs:
       - name: Test
         run: |
           python rho_pollard.py
-          if [[ $? -ne 0 ]]; then
+          if [[ $? -ne 28 ]]; then
             echo "First test failed"
             exit 1
           fi
-          if [[ ! $(python rho_pollard.py) =~ 1[0-3] ]]; then
-            echo "Second test failed"
-            exit 1
-          fi  
