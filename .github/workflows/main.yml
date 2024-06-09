@@ -11,7 +11,7 @@ jobs:
       - name: Test
         run: |
           python rho_pollard.py
-          if [[ ! $(python rho_pollard.py) = 28 ]]; then
+          if [[ ! $(python rho_pollard.py) == 28 ]]; then
             echo "First test failed"
             exit 1
           fi  
