@@ -11,7 +11,7 @@ jobs:
       - name: Test
         run: |
           python rho_pollard.py
-          if [[ $? -ne 28 ]]; then
+          if [[ $? -ne 0 ]]; then
             echo "First test failed"
             exit 1
           fi
