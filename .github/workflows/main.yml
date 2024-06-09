@@ -10,7 +10,7 @@ jobs:
 
       - name: Test
         run: |
-          python rho_pollard.py
+          python test_rho-Pollard.py
           if [[ $? -ne 0 ]]; then
             echo "First test failed"
             exit 1
