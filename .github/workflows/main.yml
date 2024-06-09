@@ -15,7 +15,7 @@ jobs:
             echo "First test failed"
             exit 1
           fi
-            if [[ ! $(python main.py) =~ 2[0-9] ]]; then
+            if [[ ! $(python rho_pollard.py) =~ 2[0-9] ]]; then
             echo "Second test failed"
             exit 1
           fi  
