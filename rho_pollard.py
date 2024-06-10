@@ -1,44 +1,61 @@
-"""
-@file
-@brief Ро-метод факторизации Полларда
-"""
+from demo import Calculator
 
-def algorithm():
-    """"
-    @brief Решает задачу дискретного логарифмирования для заданного сравнения
-    @param a Основание степени
-    @param b Остаток взятия по модулю
-    @param p Модуль сравнения
-    @param table Все итерации
-    @return Решение сравнения
-    """
-    a = 15
-    b = 4
-    p = 31
-    x = 0
 
-    ui = 0
-    vi = 0
-    zi = 0
-    t = True
+class Summation:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
-    table = [[0, 0, 1]]
+    def compute(self):
+        return self.x + self.y
 
-    while t:
-        if zi * 3 < p:
-            ui += 1
-        elif zi * 3 > 2 * p:
-            vi += 1
-        elif (3 * zi > p) and (3 * zi < 2 * p):
-            ui *= 2
-            vi *= 2
-        zi = ((a ** ui) * (b ** vi)) % p
-        table.append([ui, vi, zi])
-        for i in range(0, len(table) - 2):
-            if table[i][2] == zi:
-                t = False
-                x = ((table[i][0] - ui) / (vi - table[i][1])) % (p - 1)
-    if x < 0:
-        x += p
-    print (x)
+class Difference:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
+    def compute(self):
+        return self.x - self.y
+
+class Product:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def compute(self):
+        return self.x * self.y
+
+class Quotient:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def compute(self):
+        if self.y == 0:
+            raise ValueError("Cannot divide by zero")
+        return self.x / self.y
+
+class Calculator:
+    def __init__(self):
+        pass
+
+    def execute_operation(self, operation, x, y):
+        if operation == 'summation':
+            return Summation(x, y).compute()
+        elif operation == 'difference':
+            return Difference(x, y).compute()
+        elif operation == 'product':
+            return Product(x, y).compute()
+        elif operation == 'quotient':
+            return Quotient(x, y).compute()
+        else:
+            raise ValueError("Invalid operation")
+
+if __name__ == "__main__":
+    calc = Calculator()
+    x = 50
+    y = 2
+    print("Summation:", calc.execute_operation('summation', x, y))
+    print("Difference:", calc.execute_operation('difference', x, y))
+    print("Product:", calc.execute_operation('product', x, y))
+    print("Quotient:", calc.execute_operation('quotient', x, y))
